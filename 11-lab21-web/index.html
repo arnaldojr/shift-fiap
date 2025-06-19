@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visão Computacional com TensorFlow.js</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Visão Computacional com TensorFlow.js</h1>
+            <p>Uma demonstração didática para explorar TensorFlow.js no navegador</p>
+        </header>
+
+        <nav class="examples-nav">
+            <button onclick="showExample(event, 'classification')" class="active" aria-controls="classification">Classificação</button>
+            <button onclick="showExample(event, 'detection')" aria-controls="detection">Detecção</button>
+        </nav>
+
+        <main>
+            <div id="classification" class="example-content active">
+                <h2>Classificação de Imagens</h2>
+                <div class="demo-section">
+                    <div class="upload-area">
+                        <label for="imageInput">Selecionar imagem para classificação:</label>
+                        <input type="file" id="imageInput" accept="image/*">
+                        <canvas id="imageCanvas"></canvas>
+                    </div>
+                    <div class="results">
+                        <h3>Resultados:</h3>
+                        <div id="classificationResults"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="detection" class="example-content">
+                <h2>Detecção de Objetos em Tempo Real</h2>
+                <div class="demo-section">
+                    <div class="video-container">
+                        <video id="webcam" autoplay muted></video>
+                        <canvas id="detectionCanvas"></canvas>
+                    </div>
+                    <div class="controls">
+                        <button id="startWebcam">Iniciar Webcam</button>
+                        <button id="stopWebcam">Parar</button>
+                        <div id="detectionStatus">Clique em "Iniciar Webcam"</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+      <!-- Import TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>  
+    <!-- IImporta modelo MobileNet para classificação -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@latest"></script> 
+    <!-- Importa modelo COCO-SSD para detecção de objetos -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@latest"></script> 
+
+    <!-- Importa o script principal -->
+    <script src="script.js"></script>
+</body>
+</html>
